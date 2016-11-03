@@ -17,7 +17,7 @@ class FlickrPix{
     var dateTaken: NSDate?
     var title: String
     var owner: String?
-    lazy var bigPicture: UIImage? = {
+    lazy var bigPix: UIImage? = {
         print("big pic lazy")
         return nil
     }()

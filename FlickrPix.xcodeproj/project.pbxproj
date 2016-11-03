@@ -15,6 +15,7 @@
 		944F93641DCB646700324D0F /* FlickrPixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F93631DCB646700324D0F /* FlickrPixTests.swift */; };
 		944F936F1DCB646700324D0F /* FlickrPixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F936E1DCB646700324D0F /* FlickrPixUITests.swift */; };
 		944F937D1DCB652400324D0F /* FlickrPix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F937C1DCB652400324D0F /* FlickrPix.swift */; };
+		944F937F1DCB6A4E00324D0F /* PicCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F937E1DCB6A4E00324D0F /* PicCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		944F936E1DCB646700324D0F /* FlickrPixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPixUITests.swift; sourceTree = "<group>"; };
 		944F93701DCB646700324D0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		944F937C1DCB652400324D0F /* FlickrPix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPix.swift; sourceTree = "<group>"; };
+		944F937E1DCB6A4E00324D0F /* PicCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				944F93571DCB646700324D0F /* LaunchScreen.storyboard */,
 				944F935A1DCB646700324D0F /* Info.plist */,
 				944F937C1DCB652400324D0F /* FlickrPix.swift */,
+				944F937E1DCB6A4E00324D0F /* PicCollection.swift */,
 			);
 			path = FlickrPix;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				944F93511DCB646700324D0F /* ViewController.swift in Sources */,
 				944F937D1DCB652400324D0F /* FlickrPix.swift in Sources */,
+				944F937F1DCB6A4E00324D0F /* PicCollection.swift in Sources */,
 				944F934F1DCB646700324D0F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

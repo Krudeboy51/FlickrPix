@@ -23,20 +23,23 @@ class PicCollection {
     
     func getRecentPix()->Array<FlickrPix>?{
         
-        
         return nil
     }
     
     func searchPix()->Array<FlickrPix>?{
-        
-        
+        //create url for request
+        //request json data
+        //parse json to dictionary
+        //iterate through dictionary and create pics and add to Array<FlickrPix>
         return nil
     }
     
+    // clears the photos
     func deleteAllPix(){
         currentPix.removeAll()
     }
     
+    //delete actual images
     func freeupMemory(){
         for i in currentPix{
             i.bigPix = nil
@@ -44,6 +47,7 @@ class PicCollection {
         }
     }
     
+    //clean up notification
     deinit{
         let nc = NSNotificationCenter.defaultCenter()
         nc.removeObserver(self)

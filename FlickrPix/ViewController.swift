@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         print("getting recent")
         pics.getRecentPix()
         print("searching for cars")
-        pics.searchPix("cars")
+        pics.searchPix("nude")
     }
 
     override func didReceiveMemoryWarning() {

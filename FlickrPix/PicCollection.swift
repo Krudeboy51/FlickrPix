@@ -103,6 +103,9 @@ class PicCollection {
     }
     
     private func rawDataFromURL(url: NSURL)->AnyObject?{
+        
+        let request = NSMutableURLRequest(URL: url)
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
         return nil
     }
     

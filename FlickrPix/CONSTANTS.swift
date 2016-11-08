@@ -8,4 +8,8 @@
 
 import Foundation
 
-class 
+class  Constants{
+    struct APIKey {
+        static var flickrAPIKey = "f6a39eae291479bc99a3403b72d9f815"
+    }
+}

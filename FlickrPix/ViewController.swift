@@ -9,10 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let pics = PicCollection()
+        print("getting recent")
+        pics.getRecentPix()
+        print("searching for cars")
+        pics.searchPix("cars")
     }
 
     override func didReceiveMemoryWarning() {

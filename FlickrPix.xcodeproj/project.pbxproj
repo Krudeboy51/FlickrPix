@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94014E3B1DD20BB100D47E76 /* CONSTANTS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94014E3A1DD20BB100D47E76 /* CONSTANTS.swift */; };
 		944F934F1DCB646700324D0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F934E1DCB646700324D0F /* AppDelegate.swift */; };
 		944F93511DCB646700324D0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F93501DCB646700324D0F /* ViewController.swift */; };
 		944F93541DCB646700324D0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944F93521DCB646700324D0F /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		94014E3A1DD20BB100D47E76 /* CONSTANTS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CONSTANTS.swift; sourceTree = "<group>"; };
 		944F934B1DCB646600324D0F /* FlickrPix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrPix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		944F934E1DCB646700324D0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		944F93501DCB646700324D0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				944F935A1DCB646700324D0F /* Info.plist */,
 				944F937C1DCB652400324D0F /* FlickrPix.swift */,
 				944F937E1DCB6A4E00324D0F /* PicCollection.swift */,
+				94014E3A1DD20BB100D47E76 /* CONSTANTS.swift */,
 			);
 			path = FlickrPix;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				944F93511DCB646700324D0F /* ViewController.swift in Sources */,
 				944F937D1DCB652400324D0F /* FlickrPix.swift in Sources */,
 				944F937F1DCB6A4E00324D0F /* PicCollection.swift in Sources */,
+				94014E3B1DD20BB100D47E76 /* CONSTANTS.swift in Sources */,
 				944F934F1DCB646700324D0F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +496,7 @@
 				944F93751DCB646700324D0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		944F93761DCB646700324D0F /* Build configuration list for PBXNativeTarget "FlickrPixTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +505,7 @@
 				944F93781DCB646700324D0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		944F93791DCB646700324D0F /* Build configuration list for PBXNativeTarget "FlickrPixUITests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +514,7 @@
 				944F937B1DCB646700324D0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

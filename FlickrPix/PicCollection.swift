@@ -22,15 +22,29 @@ class PicCollection {
     }
     
     func getRecentPix()->Array<FlickrPix>?{
-        
-        return nil
+        //create url
+        let mURL = createURL(.Recent)
+        //temp until functions are filled
+        if(nil == mURL){
+            return nil
+        }
+        //use url to get JSON
+        let rawData = rawDataFromURL(mURL!)
+        //parse json
+        currentPix = pictureArrayFromRawData(rawData)!
+        //iterate
+        return currentPix
     }
     
-    func searchPix()->Array<FlickrPix>?{
+    func searchPix(searchString: String)->Array<FlickrPix>?{
         //create url for request
-        //request json data
-        //parse json to dictionary
-        //iterate through dictionary and create pics and add to Array<FlickrPix>
+        let mURL = createURL(.Search(searchString))
+        //temp until functions are filled
+        if(nil == mURL){
+            return nil
+        }
+        let rawData = rawDataFromURL(mURL!)
+        currentPix = pictureArrayFromRawData(rawData)!
         return nil
     }
     
@@ -51,5 +65,23 @@ class PicCollection {
     deinit{
         let nc = NSNotificationCenter.defaultCenter()
         nc.removeObserver(self)
+    }
+    
+    //MARK: -- Private internal function
+    private enum URLAction{
+        case Recent
+        case Search(String)
+    }
+    
+    private func createURL(action: URLAction)->NSURL?{
+        return nil
+    }
+    
+    private func rawDataFromURL(url: NSURL)->AnyObject?{
+        return nil
+    }
+    
+    private func pictureArrayFromRawData(data: AnyObject?)->Array<FlickrPix>?{
+        return nil
     }
 }

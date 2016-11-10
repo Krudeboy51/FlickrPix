@@ -17,6 +17,7 @@
 		944F936F1DCB646700324D0F /* FlickrPixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F936E1DCB646700324D0F /* FlickrPixUITests.swift */; };
 		944F937D1DCB652400324D0F /* FlickrPix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F937C1DCB652400324D0F /* FlickrPix.swift */; };
 		944F937F1DCB6A4E00324D0F /* PicCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944F937E1DCB6A4E00324D0F /* PicCollection.swift */; };
+		94C155971DD4B6B30053826E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C155961DD4B6B30053826E /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		944F93701DCB646700324D0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		944F937C1DCB652400324D0F /* FlickrPix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPix.swift; sourceTree = "<group>"; };
 		944F937E1DCB6A4E00324D0F /* PicCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollection.swift; sourceTree = "<group>"; };
+		94C155961DD4B6B30053826E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				944F935A1DCB646700324D0F /* Info.plist */,
 				944F937C1DCB652400324D0F /* FlickrPix.swift */,
 				944F937E1DCB6A4E00324D0F /* PicCollection.swift */,
+				94C155961DD4B6B30053826E /* SwiftyJSON.swift */,
 				94014E3A1DD20BB100D47E76 /* CONSTANTS.swift */,
 			);
 			path = FlickrPix;
@@ -268,6 +271,7 @@
 				944F93511DCB646700324D0F /* ViewController.swift in Sources */,
 				944F937D1DCB652400324D0F /* FlickrPix.swift in Sources */,
 				944F937F1DCB6A4E00324D0F /* PicCollection.swift in Sources */,
+				94C155971DD4B6B30053826E /* SwiftyJSON.swift in Sources */,
 				94014E3B1DD20BB100D47E76 /* CONSTANTS.swift in Sources */,
 				944F934F1DCB646700324D0F /* AppDelegate.swift in Sources */,
 			);

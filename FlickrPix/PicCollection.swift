@@ -29,9 +29,9 @@ class PicCollection {
             return nil
         }
         //use url to get JSON
-        let rawData = rawDataFromURL(mURL!)
+        let rawData = picturesFromURL(mURL!)
         //parse json
-        currentPix = pictureArrayFromRawData(rawData)
+       // currentPix = pictureArrayFromRawData(rawData)
         //iterate
         return currentPix
     }
@@ -43,8 +43,8 @@ class PicCollection {
         if(nil == mURL){
             return nil
         }
-        let rawData = rawDataFromURL(mURL!)
-        currentPix = pictureArrayFromRawData(rawData)
+        let rawData = picturesFromURL(mURL!)
+        //currentPix = pictureArrayFromRawData(rawData)
         return nil
     }
     
@@ -82,7 +82,7 @@ class PicCollection {
         //specify what we want
         params["extras"] = "date_taken,url_h,url_t,descriptions"
         //filter safe PG-13 pictures, comment to turn filter off ;-)
-        params["safe_search"] = "1"
+        //params["safe_search"] = "1"
         //check request type
         switch action {
         case .Recent:
@@ -102,11 +102,33 @@ class PicCollection {
         return urlComponents?.URL
     }
     
+    //Depreciated func
+    /*
     private func rawDataFromURL(url: NSURL)->AnyObject?{
         
         let request = NSMutableURLRequest(URL: url)
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        
         return nil
+    }*/
+    //Updated ^ func:
+    private func picturesFromURL(url: NSURL){
+        let request = NSMutableURLRequest(URL: url)
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        ////<#T##(NSData?, NSURLResponse?, NSError?) -> Void#>
+        let task = session.dataTaskWithRequest(request, completionHandler:
+        {
+            (data, response, error) in
+            if let actualError = error {
+                print("Mayday we got an error \(actualError)")
+            }else if let actualResponse = response, actualData = data{
+                var jsonError: NSError?
+                let parseData = JSON.init(data: actualData, options: NSJSONReadingOptions.AllowFragments, error: &jsonError)
+                print("\(parseData)")
+            }
+        })
+        
+        task.resume()
     }
     
     private func pictureArrayFromRawData(data: AnyObject?)->Array<FlickrPix>{

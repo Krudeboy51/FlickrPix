@@ -35,6 +35,4 @@ class FlickrPix{
         self.owner = owner
     }
     
-    
-    
 }

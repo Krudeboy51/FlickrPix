@@ -122,11 +122,34 @@ class PicCollection {
             if let actualError = error {
                 print("Mayday we got an error \(actualError)")
             }else if let actualResponse = response, actualData = data{
+                //temp array for extracted data
+                var tempFlPxAr = Array<FlickrPix>()
                 var jsonError: NSError?
                 let parseData = JSON.init(data: actualData, options: NSJSONReadingOptions.AllowFragments, error: &jsonError)
-                print("\(parseData)")
+                
+//title: String, url_h: NSURL, url_t: NSURL, desc: String?, date: NSDate?, owner: String?
+                
+                let photodata = parseData["photos"]["photo"]
+                for (key, jsonValue) : (String, JSON) in photodata {
+                    print("Key: \(key)")
+                    let title = jsonValue["title"].string
+                    let url_t = jsonValue["url_t"].string
+                    let url_h = jsonValue["url_h"].string
+                    
+                    if( nil != title && nil != url_t && nil != url_h){
+                        let desc = jsonValue["description"].string
+                        let date = jsonValue["dateTaken"].string
+                        let owner = jsonValue["owner"].string
+                        let Flckrpx = FlickrPix.init(title: title!, url_h: NSURL(string: url_h!)!, url_t: NSURL(string: url_t!)!, desc: desc, date: NSDate, owner: owner)
+                    }
+//                    for (jsonkey, _) in jsonValue{
+//                        print("SubKey: \(jsonkey)")
+//                    }
+                    
+                }
+                self.currentPix = tempFlPxAr
             }
-        })
+        }) //end of task handler
         
         task.resume()
     }

@@ -21,31 +21,23 @@ class PicCollection {
                        object: nil)
     }
     
-    func getRecentPix()->Array<FlickrPix>?{
+    func getRecentPix(completionHandler: ((Array<FlickrPix>) -> Void)? = nil){
         //create url
         let mURL = createURL(.Recent)
         //temp until functions are filled
-        if(nil == mURL){
-            return nil
+        if let realURL = mURL{
+            picturesFromURL(realURL, completionHandler: completionHandler)
         }
-        //use url to get JSON
-        let rawData = picturesFromURL(mURL!)
-        //parse json
-       // currentPix = pictureArrayFromRawData(rawData)
-        //iterate
-        return currentPix
     }
     
-    func searchPix(searchString: String)->Array<FlickrPix>?{
+    func searchPix(searchString: String, completionHandler: ((Array<FlickrPix>) -> Void)? = nil){
         //create url for request
         let mURL = createURL(.Search(searchString))
         //temp until functions are filled
-        if(nil == mURL){
-            return nil
+        if let realURL = mURL{
+            picturesFromURL(realURL, completionHandler: completionHandler)
         }
-        let rawData = picturesFromURL(mURL!)
-        //currentPix = pictureArrayFromRawData(rawData)
-        return nil
+        
     }
     
     // clears the photos
@@ -102,17 +94,8 @@ class PicCollection {
         return urlComponents?.URL
     }
     
-    //Depreciated func
-    /*
-    private func rawDataFromURL(url: NSURL)->AnyObject?{
-        
-        let request = NSMutableURLRequest(URL: url)
-        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-        
-        return nil
-    }*/
-    //Updated ^ func:
-    private func picturesFromURL(url: NSURL){
+    
+    private func picturesFromURL(url: NSURL, completionHandler: ((Array<FlickrPix>) -> Void)? = nil){
         let request = NSMutableURLRequest(URL: url)
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
         ////<#T##(NSData?, NSURLResponse?, NSError?) -> Void#>
@@ -121,33 +104,53 @@ class PicCollection {
             (data, response, error) in
             if let actualError = error {
                 print("Mayday we got an error \(actualError)")
-            }else if let actualResponse = response, actualData = data{
+            }else if let _ = response, actualData = data{
                 //temp array for extracted data
                 var tempFlPxAr = Array<FlickrPix>()
                 var jsonError: NSError?
                 let parseData = JSON.init(data: actualData, options: NSJSONReadingOptions.AllowFragments, error: &jsonError)
                 
-//title: String, url_h: NSURL, url_t: NSURL, desc: String?, date: NSDate?, owner: String?
+                let dateFormat = NSDateFormatter()
                 
                 let photodata = parseData["photos"]["photo"]
                 for (key, jsonValue) : (String, JSON) in photodata {
-                    print("Key: \(key)")
                     let title = jsonValue["title"].string
                     let url_t = jsonValue["url_t"].string
                     let url_h = jsonValue["url_h"].string
                     
                     if( nil != title && nil != url_t && nil != url_h){
                         let desc = jsonValue["description"].string
-                        let date = jsonValue["dateTaken"].string
+                        let date_S = jsonValue["dateTaken"].string
                         let owner = jsonValue["owner"].string
-                        let Flckrpx = FlickrPix.init(title: title!, url_h: NSURL(string: url_h!)!, url_t: NSURL(string: url_t!)!, desc: desc, date: NSDate, owner: owner)
+                        
+                        let realURLT = NSURL(string: url_h!)
+                        let realURLH = NSURL(string: url_t!)
+                        if nil != realURLT && nil != realURLH {
+                            let date: NSDate? = (nil == date_S) ? nil: dateFormat.dateFromString(date_S!)
+                            let Flckrpx = FlickrPix.init(title: title!,
+                                                     url_h: realURLT!,
+                                                    url_t: realURLH!,
+                                                    desc: desc,
+                                                    date: date,
+                                                    owner: owner)
+                            
+                            tempFlPxAr.append(Flckrpx)
+                        }
                     }
 //                    for (jsonkey, _) in jsonValue{
 //                        print("SubKey: \(jsonkey)")
 //                    }
                     
                 }
+                print("We have \(tempFlPxAr.count) pictures")
                 self.currentPix = tempFlPxAr
+                
+                //this code contains VC code which needs to be run/dispatched to main thread
+                if let actualCP = completionHandler{
+                    dispatch_async(dispatch_get_main_queue(), {
+                      actualCP(self.currentPix)
+                    })
+                }
             }
         }) //end of task handler
         

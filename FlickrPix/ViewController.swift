@@ -16,9 +16,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         let pics = PicCollection()
         print("getting recent")
-        pics.getRecentPix()
-        print("searching for cars")
-        pics.searchPix("nude")
+        pics.getRecentPix() {
+            (arrayOfPics) in
+            print("In the VC, we got back \(arrayOfPics.count)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
